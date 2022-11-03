@@ -52,7 +52,7 @@ function init() {
 function check() {
 //complete the code below
     fetch(url.value).then(r => 
-      resp.innerText = r.ok? 'OK' : 'xxx'
+      resp.innerText = r.ok ? 'OK' : 'Böyle bir url bulunamadı'
     ).catch(e => 
       resp.innerText = e
     )
