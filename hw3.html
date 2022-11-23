@@ -18,7 +18,6 @@
             background-color: #148ddb;
             background-image: url(https://dl.dropbox.com/s/orogmmeqzvnymxu/mbglong.jpg);
             background-size: cover;
-            background-repeat-y: no-repeat;
         }
 
         .options {
@@ -79,7 +78,7 @@
     </div>
 
     <div class="char-wrap">
-        <img src="https://raw.githubusercontent.com/mehmetozkn/mehmetozkn.github.io/main/hw3%20sprites/1.png"
+        <img src="https://github.com/mehmetozkn/mehmetozkn.github.io/tree/main/hw3sprites/1.png"
             class="character-sprite" id="character" />
     </div>
 
@@ -87,12 +86,13 @@
         let characterSpriteNum = 1;
         let characterSprite = document.getElementById("character");
 
-        let spriteUrl = "https://raw.githubusercontent.com/mehmetozkn/mehmetozkn.github.io/main/hw3%20sprites/"
+        let spriteUrl = "https://github.com/mehmetozkn/mehmetozkn.github.io/tree/main/hw3sprites/"
         let spriteInterval;
         let isPaused = false;
         let isPlaying = false;
 
         const fetchImage = async url => {
+            console.log(url);
             const response = await fetch(url)
             const blob = await response.blob()
             const imageBlob = blob;
@@ -108,10 +108,10 @@
             document.getElementById("prev").disabled = true;
             spriteInterval = setInterval(function () {
                 fetchImage(spriteUrl + characterSpriteNum + ".png").then(() => {
+                  
                     characterSpriteNum++;
                     if (characterSpriteNum > 12) characterSpriteNum = 1
                 });
-                // characterSprite.src = spriteUrl + characterSpriteNum + ".png"
             }, 200);
             isPlaying = true;
             isPaused = false;
