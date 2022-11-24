@@ -78,7 +78,7 @@
     </div>
 
     <div class="char-wrap">
-        <img src="https://github.com/mehmetozkn/mehmetozkn.github.io/tree/main/hw3sprites/1.png"
+        <img src="https://raw.githubusercontent.com/mehmetozkn/mehmetozkn.github.io/main/hw3sprites/1.png"
             class="character-sprite" id="character" />
     </div>
 
@@ -86,13 +86,12 @@
         let characterSpriteNum = 1;
         let characterSprite = document.getElementById("character");
 
-        let spriteUrl = "https://github.com/mehmetozkn/mehmetozkn.github.io/tree/main/hw3sprites/"
+        let spriteUrl = "https://raw.githubusercontent.com/mehmetozkn/mehmetozkn.github.io/main/hw3sprites/"
         let spriteInterval;
         let isPaused = false;
         let isPlaying = false;
 
         const fetchImage = async url => {
-            console.log(url);
             const response = await fetch(url)
             const blob = await response.blob()
             const imageBlob = blob;
@@ -120,17 +119,17 @@
         function stopAnimation() {
             clearInterval(spriteInterval);
             isPlaying = false;
+            document.getElementById("next").disabled = false;
+                document.getElementById("prev").disabled = false;
         }
 
         function pauseAnimation() {
             if (isPaused) {
-                console.log('pause Animation 1')
                 startAnimation(characterSpriteNum);
                 isPaused = false;
                 document.getElementById("next").disabled = true;
                 document.getElementById("prev").disabled = true;
             } else {
-                console.log('pause Animation 2')
                 stopAnimation();
                 isPaused = true;
                 document.getElementById("next").disabled = false;
